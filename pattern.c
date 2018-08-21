@@ -22,7 +22,7 @@ void main()
   int pattern[3][3]={{1,2,3},{4,5,6},{7,8,9}};
   int *p;
   p = &pattern[0][0];
-  int m[9],n[9], address,num_of_points=0,sum=0,i=0,choice = 1;
+  int m[9],n[9], address,sum=0,i=0,choice = 1,j;
   char draw[9]={"000000000"};
   while(choice!=0)
   {
@@ -30,57 +30,56 @@ void main()
     drawpat(draw);
     scanf("%d",&choice);
     draw[choice-1] = '*';
-    if(choice == 1)
+    if(choice == 1 )
     {
       m[i]=0;
       n[i]=0;
     }
-    if(choice == 2)
+    else if(choice == 2)
     {
       m[i]=0;
       n[i]=1;
     }
-    if(choice == 3)
+    else if(choice == 3)
     {
       m[i]=0;
       n[i]=2;
     }
-    if(choice == 4)
+    else if(choice == 4)
     {
       m[i]=1;
       n[i]=0;
     }
-    if(choice == 5)
+    else if(choice == 5)
     {
       m[i]=1;
       n[i]=1;
     }
-    if(choice == 6)
+    else if(choice == 6)
     {
       m[i]=1;
       n[i]=2;
     }
-    if(choice == 7)
+    else if(choice == 7)
     {
       m[i]=2;
       n[i]=0;
     }
-    if(choice == 8)
+    else if(choice == 8)
     {
       m[i]=2;
       n[i]=1;
     }
-    if(choice == 9)
+    else if(choice == 9)
     {
       m[i]=2;
       n[i]=2;
     }
     i++;
-    num_of_points++;
   }
-  for(i=0;i<num_of_points-1;i++)
+  for(j=0;j<i-1;j++)
   {
-    address = m[i]*3 + n[i];
+    address = m[j]*3 + n[j];
     sum += *(p+address);
   }
   printf("Sum of the pattern is %d\n",sum);
