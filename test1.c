@@ -1,5 +1,5 @@
 #include  <stdio.h>
-#include "arrint.h"
+#include "arr.h"
 void main()
 {
 	int arr[100],n,choice,i;
