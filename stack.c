@@ -1,12 +1,16 @@
 #include <stdio.h>
-
+#include <string.h>
+#define MAX 20
 char stack[20];
-int top = 0;
+int top = -1;
+void push(char);
+char pop();
 void main()
 {
-	char *str;
+	char str[20];
+	int i;
 	printf("enter string \n");
-	scanf("%s",str);
+	scanf("%[^\n]s",str);
 	for(i = 0;i<strlen(str);i++)
 	{
 		push(*(str+i));
@@ -17,21 +21,29 @@ void main()
 		*(str+i)=pop();
 	}
 	
-	printf("Reversed string is %s \n",str);
+	printf("Reversed string is %s\n",str);
+	
+	if(strcmp(stack,str)==0)
+		printf("They are a palindrom \n");
+	
 }
 	
-char push(char a)
+void push(char a)
 {
-	if(top == 19)
+	if(top == MAX-1)
 	{
 		printf("Over flow\n");
 	 	return;
 	}
-	stack[top++] = a;
+	stack[++top] = a;
 }
 
-void pop()
+char pop()
 {
 	if(top == -1)
 	{
-		pt
+		printf("Under flow \n");
+		return;
+	}
+	return stack[top--];
+}
